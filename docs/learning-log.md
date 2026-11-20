@@ -11,7 +11,7 @@
   - 数值函数：`ceil`、`floor`、`mod`、`rand`、`round`
   - 字符串函数：`concat`、`lower`、`upper`、`lpad`、`rpad`、`trim`、`substring`
   - 日期函数：`curdate`、`curtime`、`now`、`year/month/day`、`date_add`、`datediff`
-- 易错点：聚合查询中的普通列必须加入 `group by`；函数名注意拼写（`substring`，不是 `substting`）。
+- 易错点：用聚合函数（`count`）做分组统计时，`select` 中的普通列必须出现在 `group by` 中。
 
 ## 2026-11-14
 
