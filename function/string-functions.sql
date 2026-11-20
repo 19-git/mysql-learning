@@ -1,0 +1,26 @@
+-- -------------------- 字符串函数 练习 --------------------
+
+-- concat
+    select concat('Hello' , 'MySQL');
+
+-- lower
+
+    select lower('HELLO MYSQL');
+
+-- upper
+    select upper('hello mysql');
+
+-- lpad
+    select lpad('01',5,'-');
+
+-- rpad
+    select rpad('01',5,'-');
+
+-- trim
+    select trim('   Hello NysQL    ');
+
+-- substring
+    select substring('Hello MySQL',1,5);
+
+-- 1. 由于业务需求变更，企业员工的工号，统一为5位数，目前不足5位数的全部在前面补0。比如：1号员工的工号应该为00001。
+    update emp set workno = lpad(workno,5,'0');
