@@ -2,6 +2,17 @@
 
 > 按日期倒序记录，新的内容放在最上面。
 
+## 2026-11-21
+
+- 流程控制函数：`if`、`ifnull`、`case when then else end`
+  - 案例：按工作地址划分一线/二线城市；按成绩划分优秀/及格/不及格
+- 列约束练习：主键 `primary key`、`auto_increment`、`not null`、`unique`、`check`、`default`，用违规插入验证拦截效果
+- 外键练习：`dept` 与 `dept_emp` 关联，外键的添加与删除，`on update/delete cascade`、`set null` 级联行为
+- 易错点：
+  - 范围判断用 `case when 条件`，不要写成 `case 字段 when 条件`；等值匹配才用 `case 字段 when 值`
+  - 自增主键在失败回滚后会留下断号，断号不回收、不复用，不影响唯一递增
+  - `on delete cascade` 会连带删除从表数据，生产环境慎用
+
 ## 2026-11-20
 
 - 目录整理：脚本按主题归入 `practice/` 与 `function/` 文件夹。
