@@ -1,6 +1,6 @@
 # mysql-learning
 
-MySQL 学习练习仓库，记录课程中的建表、约束、函数、查询与权限练习。
+MySQL 学习练习仓库，记录课程中的建表、约束、函数、多表关系、多表查询与权限练习。
 
 ## 环境
 
@@ -18,9 +18,14 @@ MySQL 学习练习仓库，记录课程中的建表、约束、函数、查询�
   - `string-functions.sql`：字符串函数（`concat`、`lower`、`upper`、`lpad`、`rpad`、`trim`、`substring` 等）。
   - `date-functions.sql`：日期函数（`curdate`、`curtime`、`now`、`year/month/day`、`date_add`、`datediff` 等）。
   - `flow-control-functions.sql`：流程控制函数（`if`、`ifnull`、`case when` 分支判断，含地址分类与成绩等级案例）。
-- `约束演示.sql`：表约束与外键练习
-  - 列级约束：主键、自增、非空、唯一、`check` 校验、默认值；
-  - 外键：`dept` 与 `dept_emp` 关联，外键的添加/删除，以及 `cascade`、`set null` 级联行为。
+- `多表关系演示/`：表关系与多表查询练习
+  - `约束演示.sql`：列级约束（主键、自增、非空、唯一、`check`、默认值）与外键、`cascade`/`set null` 级联行为。
+  - `多对多.sql`：`student` 学生表、`course` 课程表与 `student_course` 中间表，两个外键关联。
+  - `一对一.sql`：`tb_user` 用户表与 `tb_user_edu` 教育信息表拆分存储。
+  - `内连接.sql`：隐式内连接（`where` 关联）与显式内连接（`inner join ... on`）。
+  - `外连接.sql`：`left join`、`right join`，以及右外连接改写为左外连接。
+  - `自连接.sql`：同表起别名互相关联，查询员工及其直属领导。
+  - `联合查询.sql`：`union all` 拼接结果并保留重复，`union` 拼接后去重。
 - `docs/learning-log.md`：学习日志，按日期记录每次更新的内容。
 
 ## 运行方式
