@@ -106,6 +106,8 @@ select avg(salary) from emp_case e2 where e2.dept_id = 2;
 
 select * from emp_case e1 where e1.salary < ((select avg(e2.salary) from emp_case e2 where e1.dept_id = e2.dept_id)) order by salary ;
 
+-- 相当于新建了一个表
+select e1.name,e1.salary,e1.dept_id,e2.dept_id from emp_case e1 ,emp_case e2 where e1.dept_id =e2.dept_id order by salary;
 
 select *,(select avg(e2.salary) from emp_case e2 where e1.dept_id = e2.dept_id) '部门平均工资' from emp_case e1 where e1.salary < ((select avg(e2.salary) from emp_case e2 where e1.dept_id = e2.dept_id)) order by salary ;
 
