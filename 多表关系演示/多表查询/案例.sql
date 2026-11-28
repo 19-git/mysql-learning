@@ -76,8 +76,43 @@ from emp_case e , dept_case d
 where e.dept_id = d.id;
 
 
+-- 8. 查询工资比 "灭绝" 高的员工信息。
+-- a. 查询 "灭绝" 的薪资
+
+select salary from emp_case where name = '灭绝';
+
+-- b. 查询比她工资高的员工数据
+
+select * from emp_case where salary > (select salary from emp_case where name = '灭绝') order by salary;
 
 
+-- 9. 查询比平均薪资高的员工信息
+-- a. 查询员工的平均薪资
 
+select avg(salary) from emp_case;
+
+-- b. 查询比平均薪资高的员工信息
+
+select * from emp_case where salary > (select avg(salary) from emp_case) order by salary ;
+
+
+-- 10. 查询低于本部门平均工资的员工信息  自连接
+-- a. 查询指定部门平均薪资
+
+select avg(salary) from emp_case e1 where e1.dept_id = 1;
+select avg(salary) from emp_case e2 where e2.dept_id = 2;
+
+-- b. 查询低于本部门平均工资的员工信息
+
+select * from emp_case e1 where e1.salary < ((select avg(e2.salary) from emp_case e2 where e1.dept_id = e2.dept_id)) order by salary ;
+
+
+select *,(select avg(e2.salary) from emp_case e2 where e1.dept_id = e2.dept_id) '部门平均工资' from emp_case e1 where e1.salary < ((select avg(e2.salary) from emp_case e2 where e1.dept_id = e2.dept_id)) order by salary ;
+
+
+-- 11. 查询所有的部门信息，并统计部门的员工人数
+
+select dept_case.id , dept_case.name , (select count(*) from emp_case , dept_case where emp_case.dept_id = dept_case.id) '该部门的员工人数'
+from dept_case;
 
 
